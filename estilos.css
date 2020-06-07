@@ -9,4 +9,48 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.jumbotron {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-bottom: 0;
+    background-color: #fff;
+}
+
+@media (min-width: 768px) {
+    .jumbotron {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+}
+
+.jumbotron p:last-child {
+    margin-bottom: 0;
+}
+
+.jumbotron h1 {
+    font-weight: 300;
+}
+
+.jumbotron .container {
+    max-width: 40rem;
+}
+
+footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+footer p {
+        margin-bottom: .25rem;
+}
+.card {
+    min-width: 220px;
+}
+.carousel slidex {
+    box-shadow: 2px 2px 5px #999;
+}
+.tabla {
+    width: 50%;
+    font-size: 20px;
+    color: #640923;
+}
 

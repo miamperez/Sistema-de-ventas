@@ -1,25 +1,27 @@
 <?php
-$user=array("Majo","Josue");
-$pass=array(206213,741236);
-
-$estado=false;
-$nombre=$_POST['nombre'];
-$password=$_POST['pass'];
-
-$tam=count($user);
-for($x=0; $x<$tam; $x++)
-{
-	if($user[$x]==$nombre && $pass[$x]==$password)
+	$con=mysqli_connect("localhost", "root", "", "ventas");
+	if(!$con)
 	{
-		$estado=true;
+		die("No hay conexión");
 	}
-}
-if($estado)
-{
-	header("location:Ventas.php");
-}
-else 
-{
-	echo "Incorrect User";
-}
+	$nombre= $_POST["nombre"];
+	$pass= $_POST["pass"];
+
+	$query=mysqli_query($con, "SELECT * FROM usuarios WHERE User = '".$nombre."' AND pass = '".$pass."'");
+	$nr=mysqli_num_rows($query);
+	if($nr==1)
+	{
+			$con=mysqli_connect("localhost", "root", "", "ventas");
+            if(!$con)
+	        {
+	            die("Error en la conexión");
+			}
+            $quer="DELETE FROM `carrito` WHERE 1";
+            $pro=$con->query($quer);
+		header("location:Ventas.php");
+	}
+	else if($nr==0)
+	{
+		header("location:Index.html"); 
+	}
 ?>
